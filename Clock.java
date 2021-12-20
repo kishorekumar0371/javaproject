@@ -4,18 +4,18 @@ import java.util.*;
 public class Clock extends Applet implements Runnable
 {
     Thread t;
-    //Initialize the applet
+   
     public void init()
     {
 	setBackground(Color.white);
     }
-    //Function to start the thread
+    
     public void start()
     {
 	t = new Thread(this);
 	t.start();
     }
-    //Function to execute the thread
+    
     public void run()
     {
 	while(true)
@@ -23,7 +23,7 @@ public class Clock extends Applet implements Runnable
 	    try
 	    {
 		repaint();
-		//Delay by 1 sec
+		
 		Thread.sleep(1000);
 	    }
 	    catch(Exception e)
@@ -40,7 +40,7 @@ public class Clock extends Applet implements Runnable
 	int second = time.get(Calendar.SECOND);
 	double angle;
 	int x,y;
-	//Draw a circle with center(250,250) & radius=150
+	
 	g.drawOval(100,100,300,300);
 	//Label the clock
 	String s="12";
@@ -56,13 +56,13 @@ public class Clock extends Applet implements Runnable
 	}	
 	
 	
-	//Draw the minutes hand
+	
 	g.setColor(Color.red);
 	angle = Math.toRadians((6*minute)-90);
 	x = 250+(int)(Math.cos(angle)*115);
 	y = 250+(int)(Math.sin(angle)*115);
 	g.drawLine(250,250,x,y);
-	//Draw the seconds hand
+	
 	g.setColor(Color.blue);
 	angle = Math.toRadians((6*second)-90);
 	x = 250+(int)(Math.cos(angle)*130);
